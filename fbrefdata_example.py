@@ -10,7 +10,7 @@ def load_data(path):
     return df
 
 def prepare_data(df):
-    # Choose useful features
+    # Choosing useful features
     feature_cols = [
         'Poss',           # possession %
         'Gls',            # goals
@@ -29,7 +29,7 @@ def prepare_data(df):
     feature_cols = [c for c in feature_cols if c in df.columns]
 
     X = df[feature_cols]
-    y = df['Points']  # YOU must add this column manually (last season's points)
+    y = df['Points']  # added this column manually (last season's points)
 
     return X, y, feature_cols
 
@@ -46,7 +46,7 @@ def predict_points(model, df, features):
     return df
 
 def main():
-    data_path = "premier_league_2025_team_stats.csv"  # <-- YOU SAVE FBREF table AS THIS CSV
+    data_path = "premier_league_2025_team_stats.csv"  # YOU SAVE FBREF table AS THIS CSV
     df = load_data(data_path)
 
     X, y, features = prepare_data(df)
